@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>微信群首页</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.3/style/weui.min.css">
+	<link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.1/css/jquery-weui.min.css">
+	<style>
+
+		html,body{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .weui-tabbar{
+          position: fixed;
+        }
+        
+        /*搜索框*/
+        .placeholder {
+		    background-color: #ffffff;
+		    height: 2.3em;
+		    line-height: 2.3em;
+		    text-align: center;
+		    color: #cfcfcf;
+		}
+		.aui_search_input{
+			padding: 4px 0;
+    width: 100%;
+    height: 1.42857143em;
+    border: 0;
+    font-size: 14px;
+    line-height: 1.42857143em;
+    box-sizing: content-box;
+    background: transparent;
+		}
+
+    /*二维码列表*/
+		.panel-half{
+			width: calc((100% - 15px)/2);
+			float: left;
+			/*background-color: red;*/
+			padding-right: 15px;
+		}
+    .panel-half:nth-child(even){
+      padding-right: 0;
+    }
+    .panel-half-imgbox{
+      height: 10.5em;
+      overflow: hidden;
+    }
+    .textbox{
+          padding: 5px;
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          word-break: break-all;
+          color: #598700;
+          /*line-height: 18px;*/
+          height: 36px;
+          }
+    /*头部*/
+    .demos-header {
+        padding: 35px 0;
+    }
+.demos-title {
+    text-align: center;
+    font-size: 34px;
+    color: #3cc51f;
+    font-weight: 400;
+    margin: 0 15%;
+}
+
+/*分类*/
+ .fenlei-btn{
+  padding-right: 0;
+  padding-left: 0;
+  line-height: 2em;
+  font-size: 14px;
+  display: inline-block;
+  padding: 4px;
+  margin-top: 0px;
+ }
+ .fenlei-item{
+  margin-left: 5px;
+ }
+	</style>
+</head>
+<body>
+<header><div class="weui-flex">
+  <div class=""><img src="http://www.huanqun.com/templates/default/images/jingyingju.gif" alt="" style="width:4em;height: 2em" /></div>
+  <div class="weui-flex__item" style="text-align:center;line-height: 2em;"><input class="weui-input" id="city-picker" type="text" readonly="" data-code="130100" data-codes="130000,130100" value="全国 全国" style="position: absolute;left: 5em;height:2em;opacity: 0;width: 75%;"><span id="city">全国</span>[切换城市]
+  
+  </div>
+</div></header>
+<div class="demos-header">
+      <h1 class="demos-title">群集市</h1>
+    </div>
+    <div class="weui-panel weui-panel_access">
+        <!-- <a href="javascript:;" class="weui-btn weui-btn_primary fenlei-btn">微商群</a>
+        <a href="javascript:;" class="weui-btn weui-btn_primary fenlei-btn">宝妈群</a>
+        <a href="javascript:;" class="weui-btn weui-btn_primary fenlei-btn">装修业主群</a>
+        <a href="javascript:;" class="weui-btn weui-btn_primary fenlei-btn">药材群</a>
+        <a href="javascript:;" class="weui-btn weui-btn_primary fenlei-btn">建材群</a>
+        <a href="javascript:;" class="weui-btn weui-btn_primary fenlei-btn">代理群</a>
+        <a href="javascript:;" class="weui-btn weui-btn_primary fenlei-btn">按钮群</a>
+        <a href="javascript:;" class="weui-btn weui-btn_primary fenlei-btn">按钮群</a>
+        <a href="javascript:;" class="weui-btn weui-btn_primary fenlei-btn">按钮群</a>
+        <a href="javascript:;" class="weui-btn weui-btn_primary fenlei-btn">按钮群</a> -->
+    </div>
+<div class="weui-flex">
+  <div><div class="placeholder" style="padding-left: 5px;"><i class="weui-icon-search"></i></div></div>
+  <div class="weui-flex__item"><div class="placeholder"><input type="text" class="aui_search_input" placeholder="输入关键字" /></div></div>
+  <div><div class="placeholder" style="padding-right: 4px;"><a href="javascript:;" class="weui-btn weui-btn_primary" style="height:2em;line-height: 2em;">搜索</a></div></div>
+</div>
+
+
+
+<!-- 换群 -->
+<div class="weui-panel weui-panel_access">
+        <div class="weui-panel__hd" style="padding: 15px;overflow: hidden;margin-bottom: 53px;">
+        	<div class="panel-half">
+            <div class="panel-half-imgbox" >
+            <img src="http://www.huanqun.com/uploads/user_img/20190327/1553688206.png" alt="" style="width:100%" />
+            </div>
+            <div class="textbox">招商群，企业群，聊天群，微商群，互粉群，培训群招商群，企业群，聊天群，微商群，互粉群，培训群</div>
+          </div>
+          <div class="panel-half">
+            <div class="panel-half-imgbox" >
+            <img src="http://www.huanqun.com/uploads/user_img/20181214/1544804369.jpeg" alt="" style="width:100%" />
+            </div>
+            <div class="textbox">招商群，企业群，聊天群，微商群，互粉群，培训群招商群，企业群，聊天群，微商群，互粉群，培训群招商群，企业群，聊天群，微商群，互粉群，培训群</div>
+          </div>
+          <div class="panel-half">
+            <div class="panel-half-imgbox" >
+            <img src="http://www.huanqun.com/uploads/user_img/20181208/1544257647.jpg" alt="" style="width:100%" />
+            </div>
+            <div class="textbox">招商群，企业群，聊天群，微商群，互粉群，培训群</div>
+          </div>
+          <div class="panel-half">
+            <div class="panel-half-imgbox" >
+            <img src="http://www.huanqun.com/uploads/user_img/20181214/1544804369.jpeg" alt="" style="width:100%" />
+            </div>
+            <div class="textbox">招商群，企业群，聊天群，微商群，互粉群，培训群</div>
+          </div><div class="panel-half">
+            <div class="panel-half-imgbox" >
+            <img src="http://www.huanqun.com/uploads/user_img/20190327/1553688206.png" alt="" style="width:100%" />
+            </div>
+            <div class="textbox">招商群，企业群，聊天群，微商群，互粉群，培训群招商群，企业群，聊天群，微商群，互粉群，培训群</div>
+          </div>
+          <div class="panel-half">
+            <div class="panel-half-imgbox" >
+            <img src="http://www.huanqun.com/uploads/user_img/20181214/1544804369.jpeg" alt="" style="width:100%" />
+            </div>
+            <div class="textbox">招商群，企业群，聊天群，微商群，互粉群，培训群招商群，企业群，聊天群，微商群，互粉群，培训群招商群，企业群，聊天群，微商群，互粉群，培训群</div>
+          </div>
+          <div class="panel-half">
+            <div class="panel-half-imgbox" >
+            <img src="http://www.huanqun.com/uploads/user_img/20181208/1544257647.jpg" alt="" style="width:100%" />
+            </div>
+            <div class="textbox">招商群，企业群，聊天群，微商群，互粉群，培训群</div>
+          </div>
+          <div class="panel-half">
+            <div class="panel-half-imgbox" >
+            <img src="http://www.huanqun.com/uploads/user_img/20181214/1544804369.jpeg" alt="" style="width:100%" />
+            </div>
+            <div class="textbox">招商群，企业群，聊天群，微商群，互粉群，培训群</div>
+          </div>
+        <div style="clear: both;"></div>
+      </div>
+
+
+  <div class="weui-tabbar">
+    <a href="javascript:;" class="weui-tabbar__item weui-bar__item--on">
+      <span class="weui-badge" style="position: absolute;top: -.4em;right: 1em;">8</span>
+      <div class="weui-tabbar__icon">
+        <img src="http://jqweui.com/dist/demos//images/icon_nav_button.png" alt="">
+      </div>
+      <p class="weui-tabbar__label">首页</p>
+    </a>
+    <a href="javascript:;" class="weui-tabbar__item">
+      <div class="weui-tabbar__icon">
+        <img src="http://jqweui.com/dist/demos//images/icon_nav_msg.png" alt="">
+      </div>
+      <p class="weui-tabbar__label">换群广场</p>
+    </a>
+    <a href="javascript:;" class="weui-tabbar__item">
+      <div class="weui-tabbar__icon">
+        <img src="http://jqweui.com/dist/demos//images/icon_nav_article.png" alt="">
+      </div>
+      <p class="weui-tabbar__label">群集市</p>
+    </a>
+    <a href="javascript:;" class="weui-tabbar__item">
+      <div class="weui-tabbar__icon">
+        <img src="http://jqweui.com/dist/demos//images/icon_nav_cell.png" alt="">
+      </div>
+      <p class="weui-tabbar__label">我</p>
+    </a>
+  </div>
+
+
+	<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/jquery-weui/1.2.1/js/jquery-weui.min.js"></script>
+	<script src="https://cdn.bootcss.com/jquery-weui/1.2.1/js/swiper.min.js"></script>
+	<script src="./js/city-picker.js"></script>
+	<script>
+   $("#city-picker").cityPicker({
+    title: "请选择城市",
+    showDistrict: false,
+        onChange: function (picker, values, displayValues) {
+          console.log(values, displayValues);
+          $('#city').html(displayValues[1]);
+        }
+  }); 
+
+      $(".infinite").infinite().on("infinite", function() {
+        var self = this;
+        if(self.loading) return;
+        console.log(self)
+        self.loading = true;
+        console.log(self);
+        setTimeout(function() {
+          $(self).find(".content-padded").append("<p>我是加载的新内容。我是加载的新内容。。。我是加载的新内容。。。我是加载的新内容。。。我是加载的新内容。。。我是加载的新内容。。。我是加载的新内容。。。我是加载的新内容。。。我是加载的新内容。。。。。</p>");
+          self.loading = false;
+        }, 2000);   //模拟延迟
+      });
+    
+  </script>
+</body>
+</html>

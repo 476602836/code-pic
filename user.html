@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>微信群首页</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<link rel="stylesheet" href="https://cdn.bootcss.com/weui/1.1.3/style/weui.min.css">
+	<link rel="stylesheet" href="https://cdn.bootcss.com/jquery-weui/1.2.1/css/jquery-weui.min.css">
+	<style>
+
+		html,body{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+        .weui-tabbar{
+          position: fixed;
+        }
+        
+        /*搜索框*/
+        .placeholder {
+		    background-color: #ffffff;
+		    height: 2.3em;
+		    line-height: 2.3em;
+		    text-align: center;
+		    color: #cfcfcf;
+		}
+		.aui_search_input{
+			padding: 4px 0;
+    width: 100%;
+    height: 1.42857143em;
+    border: 0;
+    font-size: 14px;
+    line-height: 1.42857143em;
+    box-sizing: content-box;
+    background: transparent;
+		}
+
+    /*二维码列表*/
+		.panel-half{
+			width: calc((100% - 15px)/2);
+			float: left;
+			/*background-color: red;*/
+			padding-right: 15px;
+		}
+    .panel-half:nth-child(even){
+      padding-right: 0;
+    }
+    .panel-half-imgbox{
+      height: 10.5em;
+      overflow: hidden;
+    }
+    .textbox{
+          padding: 5px;
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          word-break: break-all;
+          color: #598700;
+          /*line-height: 18px;*/
+          height: 36px;
+          }
+    /*头部*/
+    .demos-header {
+        padding: 35px 0;
+    }
+.demos-title {
+    text-align: center;
+    font-size: 34px;
+    color: #3cc51f;
+    font-weight: 400;
+    margin: 0 15%;
+}
+
+/*分类*/
+ .fenlei-btn{
+  padding-right: 0;
+  padding-left: 0;
+  line-height: 2em;
+  font-size: 14px;
+  display: inline-block;
+  padding: 4px;
+  margin-top: 0px;
+ }
+ .fenlei-item{
+  margin-left: 5px;
+ }
+	</style>
+</head>
+<body>
+
+<div class="demos-header">
+  <h1 class="demos-title">个人中心</h1>
+</div>
+
+<div class="weui-panel weui-panel_access" style="margin-top:3px;">
+  <div class="weui-panel__bd"> 
+    <a href="?c=avatar" class="weui-media-box weui-media-box_appmsg weui-cell_access">
+    <div class="weui-media-box__hd" style="width:90px; height:90px;"> <img class="weui-media-box__thumb" src="http://www.huanqun.com/data/avatar/images/default_avatar.jpg" alt=""> </div>
+    <div class="weui-media-box__bd">
+      <h4 class="weui-media-box__title" style="line-height:2em;"></h4>
+      <p class="weui-media-box__desc" style="line-height:2em;">账号：18712345678</p>
+              
+      <p class="weui-media-box__desc" style="line-height:2em;"><span class="ftGray">普通会员</span></p>
+      
+    </div>
+    <span class="weui-cell__ft">修改头像</span>
+    </a>
+  </div>
+  <div style="padding:0 15px 10px;">
+  <a href="membermbi.php?a=logout" style="float:right;">账户退出</a>
+  <strong class="loginfo">邀请码：101412</strong> <button id="code" data-clipboard-text="101412">点击复制</button>
+  </div>
+  <script type="text/javascript" src="templates/default/js/clipboard.min.js"></script>
+  <script>
+    var btns = document.querySelectorAll('#code');
+    var clipboard = new ClipboardJS(btns);
+    
+    clipboard.on('success', function(e) {
+        alert("复制成功！");
+    });
+    
+    clipboard.on('error', function(e) {
+        alert("系统错误！");
+    });
+    </script>
+</div>
+
+
+<div class="weui-grids">
+    <a href="javascript:;" class="weui-grid js_grid">
+        <div class="weui-grid__icon">
+            <img src="http://weui.shanliwawa.top/images/icon_nav_button.png" alt="">
+        </div>
+        <p class="weui-grid__label">
+            我的
+        </p>
+    </a>
+    <a href="javascript:;" class="weui-grid js_grid">
+        <div class="weui-grid__icon">
+            <img src="http://weui.shanliwawa.top/images/icon_nav_cell.png" alt="">
+        </div>
+        <p class="weui-grid__label">
+            列表出来看看
+        </p>
+    </a>
+    <a href="javascript:;" class="weui-grid js_grid">
+        <div class="weui-grid__icon">
+            <img src="http://weui.shanliwawa.top/images/icon_nav_toast.png" alt="">
+        </div>
+        <p class="weui-grid__label">
+            QQ
+        </p>
+    </a>
+</div>
+
+
+
+
+<div class="weui-cells">
+  <a class="weui-cell weui-cell_access" href="javascript:;">
+          <div class="weui-cell__hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+          <div class="weui-cell__bd">
+              <p>爱情</p>
+          </div>
+          <div class="weui-cell__ft">说明文字</div>
+      </a>
+      <a class="weui-cell weui-cell_access" href="javascript:;">
+          <div class="weui-cell__hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+          <div class="weui-cell__bd">
+              <p>亲情</p>
+          </div>
+          <div class="weui-cell__ft">说明文字</div>
+      </a>
+      <a class="weui-cell weui-cell_access" href="javascript:;">
+          <div class="weui-cell__hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+          <div class="weui-cell__bd">
+              <p>亲情</p>
+          </div>
+          <div class="weui-cell__ft">说明文字</div>
+      </a>
+      <a class="weui-cell weui-cell_access" href="javascript:;">
+          <div class="weui-cell__hd"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC4AAAAuCAMAAABgZ9sFAAAAVFBMVEXx8fHMzMzr6+vn5+fv7+/t7e3d3d2+vr7W1tbHx8eysrKdnZ3p6enk5OTR0dG7u7u3t7ejo6PY2Njh4eHf39/T09PExMSvr6+goKCqqqqnp6e4uLgcLY/OAAAAnklEQVRIx+3RSRLDIAxE0QYhAbGZPNu5/z0zrXHiqiz5W72FqhqtVuuXAl3iOV7iPV/iSsAqZa9BS7YOmMXnNNX4TWGxRMn3R6SxRNgy0bzXOW8EBO8SAClsPdB3psqlvG+Lw7ONXg/pTld52BjgSSkA3PV2OOemjIDcZQWgVvONw60q7sIpR38EnHPSMDQ4MjDjLPozhAkGrVbr/z0ANjAF4AcbXmYAAAAASUVORK5CYII=" alt="" style="width:20px;margin-right:5px;display:block"></div>
+          <div class="weui-cell__bd">
+              <p>亲情</p>
+          </div>
+          <div class="weui-cell__ft">说明文字</div>
+      </a>
+  </div>
+
+
+
+
+
+
+  <div class="weui-tabbar">
+    <a href="javascript:;" class="weui-tabbar__item weui-bar__item--on">
+      <span class="weui-badge" style="position: absolute;top: -.4em;right: 1em;">8</span>
+      <div class="weui-tabbar__icon">
+        <img src="http://jqweui.com/dist/demos//images/icon_nav_button.png" alt="">
+      </div>
+      <p class="weui-tabbar__label">首页</p>
+    </a>
+    <a href="javascript:;" class="weui-tabbar__item">
+      <div class="weui-tabbar__icon">
+        <img src="http://jqweui.com/dist/demos//images/icon_nav_msg.png" alt="">
+      </div>
+      <p class="weui-tabbar__label">换群广场</p>
+    </a>
+    <a href="javascript:;" class="weui-tabbar__item">
+      <div class="weui-tabbar__icon">
+        <img src="http://jqweui.com/dist/demos//images/icon_nav_article.png" alt="">
+      </div>
+      <p class="weui-tabbar__label">群集市</p>
+    </a>
+    <a href="javascript:;" class="weui-tabbar__item">
+      <div class="weui-tabbar__icon">
+        <img src="http://jqweui.com/dist/demos//images/icon_nav_cell.png" alt="">
+      </div>
+      <p class="weui-tabbar__label">我</p>
+    </a>
+  </div>
+
+
+	<script src="https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/jquery-weui/1.2.1/js/jquery-weui.min.js"></script>
+	<script src="https://cdn.bootcss.com/jquery-weui/1.2.1/js/swiper.min.js"></script>
+	<script src="./js/city-picker.js"></script>
+	
+</body>
+</html>
